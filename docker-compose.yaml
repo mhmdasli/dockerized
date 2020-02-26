@@ -1,0 +1,16 @@
+version: '3'
+services:
+    mynode:
+        container_name: mynode
+        restart: always
+        build: ./very-express
+        ports: 
+            - '8080:3000'
+    mypython:
+        container_name: mypython
+        restart: always
+        build: ./py-multipurpose
+        ports:
+            - '8081:5000'
+        links: 
+            - mynode
